@@ -15,3 +15,7 @@ div {
   border-color: black;
   border-style: solid;
 }
+
+.filled {
+  background-color: black;
+}
