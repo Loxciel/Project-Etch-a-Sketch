@@ -23,9 +23,12 @@ squares.forEach(grid => grid.addEventListener('mouseover', (event) => {
   //max number of input should be 100
   function addSquare() {
     let num = prompt('Add Squares', '1');
-    if (num.isInteger() == true && num <= 100) {
+    if (Number.isInteger(parseInt(num)) && num <= 100) {
       //take num.value and append to both sides of grid
         //input into createGrid
         console.log(num);
+    } else {
+      alert('Error!')
     }
   }
+  
