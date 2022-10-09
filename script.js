@@ -1,5 +1,7 @@
 
 function createGrid(num = 16) {
+  let container = document.getElementById('container');
+  container.replaceChildren();
   for(let i = 0; i < num; i++) {
     let square = document.createElement('div');
     square.classList.add('grid');
@@ -24,6 +26,9 @@ createGrid();
   //max number of input should be 100
   function addSquare() {
     let num = prompt('Add Squares', '1');
+    if (Number.isInteger(parseInt(num)) < 0) {
+      alert('Please enter a number greater than 0')
+    }
     if (Number.isInteger(parseInt(num)) && num <= 100) {
         let appendGrid = parseInt(num) * 2;
 
