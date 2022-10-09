@@ -5,17 +5,18 @@ function createGrid(num = 16) {
     square.classList.add('grid');
     document.getElementById('container').appendChild(square);
   }
-}
-
-createGrid();
-
-
-let squares = document.querySelectorAll('.grid');
+  let squares = document.querySelectorAll('.grid');
 squares.forEach(grid => grid.addEventListener('mouseover', (event) => {
   event.target.classList.add('filled');
 }
   //when mouse hovers over square -> change color
 ))
+}
+
+createGrid();
+
+
+
 
 //btn on top of screen that asks user to input amt of squares on each end
   //new grid should be same size
@@ -24,11 +25,14 @@ squares.forEach(grid => grid.addEventListener('mouseover', (event) => {
   function addSquare() {
     let num = prompt('Add Squares', '1');
     if (Number.isInteger(parseInt(num)) && num <= 100) {
-      //take num.value and append to both sides of grid
-        //input into createGrid
-        console.log(num);
+        let appendGrid = parseInt(num) * 2;
+
+        //clear out grid before adding num*2 squares;
+          //should ADD to current value of grid
+        createGrid(0);
+        createGrid(appendGrid);
     } else {
-      alert('Error!')
+      alert('Error!');
     }
   }
   
