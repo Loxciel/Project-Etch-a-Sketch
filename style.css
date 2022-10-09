@@ -1,13 +1,24 @@
 #container {
-  display: flex;
-  width: 108px;
-  height: 108px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 1080px;
+  height: 1080px;
+  border: 5px red solid;
+  padding: 0;
+  max-height: 1080px;
+  max-width: 1080px;
 }
 
+/* grid squares are not sizing properly to fill the container
+  end up as tall  */ 
+
 .grid {
-  width: 25px;
-  height: 25px;
+  width: auto;
+  height: auto;
+  min-width: 5px;
+  min-height: 5px;
+  max-width: auto;
+  max-height: auto;
 }
 
 div {
