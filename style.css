@@ -1,29 +1,27 @@
-#container {
-  display: flex;
-  grid-template-columns: repeat(auto-fill, minmax(5px, 11px));
-  width: 1080px;
-  height: 1080px;
-  border: 5px red solid;
-  padding: 0;
-  max-height: 1080px;
-  max-width: 1080px;
+:root {
+  --columns-row: 2;
 }
 
-/* grid squares are not sizing properly to fill the container
-  end up as tall  */ 
+#container {
+  display: grid;
+  /* takes columns-row and applies as 1st value, fr scales via amt of units */
+  grid-template-columns: repeat(var(--columns-row), 1fr);
+  grid-template-rows: repeat(var(--columns-row), 1fr);
+  width: 800px;
+  height: 800px;
+  border: 5px red solid;
+}
 
 .grid {
-  width: 100%;
+  width: auto;
   height: auto;
-  min-width: 5px;
-  min-height: 5px;
+  max-width: 5px;
+  max-height: 5px;
   flex-grow: 1;
 }
 
 div {
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
+  border: 1px black solid;
 }
 
 .filled {
