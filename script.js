@@ -1,43 +1,25 @@
 
-function createGrid(num = 16) {
-  let container = document.getElementById('container');
-  container.replaceChildren();
-  for(let i = 0; i < num; i++) {
-    let square = document.createElement('div');
-    square.classList.add('grid');
-    document.getElementById('container').appendChild(square);
-  }
-  let squares = document.querySelectorAll('.grid');
-squares.forEach(grid => grid.addEventListener('mouseover', (event) => {
-  event.target.classList.add('filled');
-}
-  //when mouse hovers over square -> change color
-))
-}
 
-createGrid();
-
-
-
-
-//btn on top of screen that asks user to input amt of squares on each end
-  //new grid should be same size
-    //grid-squares should auto fill space equally
-  //max number of input should be 100
-  function addSquare() {
-    let num = prompt('Add Squares', '1');
-    if (Number.isInteger(parseInt(num)) < 0) {
-      alert('Please enter a number greater than 0')
-    }
-    if (Number.isInteger(parseInt(num)) && num <= 100) {
-        let appendGrid = parseInt(num) * 2;
-
-        //clear out grid before adding num*2 squares;
-          //should ADD to current value of grid
-        createGrid(0);
-        createGrid(appendGrid);
-    } else {
-      alert('Error!');
-    }
-  }
+function createGrid() {
+  var Container = document.getElementById("container");
+Container.innerHTML = '';
   
+    let numberOfRows = prompt("How many rows do you want?"); //takes number input
+    let i = 0;
+    let x = numberOfRows * numberOfRows; //x = num^2 -> makes a square
+    
+    document.documentElement.style.setProperty("--columns-row", numberOfRows); //sets --columns-row style to num
+    for (i =  0; i < x ; i++) {
+      //creates divs = x^2 to populate container and gives them event handler for color change
+      var div = document.createElement("div");
+      document.getElementById("container").appendChild(div);
+      div.addEventListener("mouseenter", function () {
+      this.style.backgroundColor = "black";
+    });
+  }
+}
+
+createGrid(4);
+
+let btn = document.getElementById("add")
+  btn.addEventListener("click", createGrid)
